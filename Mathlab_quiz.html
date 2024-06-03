@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz a Risposta Multipla</title>
+    <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+    <div id="quiz-container">
+        <h1>Quiz a Risposta Multipla</h1>
+        <h3>Matematica e Geometria</h3>
+        <form id="quiz-form">
+            <div class="question">
+                <p>1. Quanto fa 30 * 40?</p>
+                <label><input type="radio" name="question1" value="1200">1200</label><br>
+                <label><input type="radio" name="question1" value="800">800</label><br>
+                <label><input type="radio" name="question1" value="120">120</label><br>
+                <label><input type="radio" name="question1" value="400">400</label><br>
+            </div>
+            <div class="question">
+                <p>2. Quanto fa 123 + 30?</p>
+                <label><input type="radio" name="question2" value="133">133</label><br>
+                <label><input type="radio" name="question2" value="66">66</label><br>
+                <label><input type="radio" name="question2" value="90">90</label><br>
+                <label><input type="radio" name="question2" value="153">153</label><br>
+            </div>
+            <div class="question">
+                <p>3. A quanto corrisponde l'area del triangolo?</p>
+                <label><input type="radio" name="question3" value="1">Base x altezza /2</label><br>
+                <label><input type="radio" name="question3" value="2">Base + altezza / 2</label><br>
+                <label><input type="radio" name="question3" value="3">Base - altezza</label><br>
+                <label><input type="radio" name="question3" value="4">Base * altezza</label><br>
+            </div>
+            <div class="question">
+                <p>4. Quanto fa 50/5?</p>
+                <label><input type="radio" name="question4" value="5" >10</label><br>
+                <label><input type="radio" name="question4" value="8" >8</label><br>
+                <label><input type="radio" name="question4" value="9" >9</label><br>
+                <label><input type="radio" name="question4" value="7">7</label><br>
+            </div>
+            <button type="button" onclick="mostraRisultato()">Invia</button>
+        </form>
+        <div id="risultato"></div>
+    </div>
+    <script>
+                function mostraRisultato() {
+            var correctAnswers = {
+                question1: "1200",
+                question2: "153",
+                question3: "1",
+                question4: "10"
+            };
+
+            var userAnswers = {
+                question1: document.querySelector('input[name="question1"]:checked'),
+                question2: document.querySelector('input[name="question2"]:checked'),
+                question3: document.querySelector('input[name="question3"]:checked'),
+                question4: document.querySelector('input[name="question4"]:checked')
+            };
+
+            var risultato = 0;
+            for (var question in correctAnswers) {
+                if (userAnswers[question] && userAnswers[question].value === correctAnswers[question]) {
+                    risultato++;
+                }
+            }
+
+            document.getElementById("risultato").innerHTML = "Le risposte giuste sono: " + risultato;
+        }
+    </script>
+</body>
+</html>
