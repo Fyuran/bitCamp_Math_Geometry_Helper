@@ -93,10 +93,28 @@ function clearData() {
 }
 
 
-function updateDisplay() {
+function updateDisplay() 
+{
     display.innerText = currentNumber;
 }
 
-function updateResult() {
+function updateResult() 
+{
     display.innerText = result;
+}
+
+function toggleSign() 
+{
+    if(result == "")
+    {
+        currentNumber = currentNumber.startsWith("-") ? currentNumber.substring(1) : "-" + currentNumber;
+        updateDisplay();
+    }
+
+    else
+    {
+        let resultString = result.toString();
+        result = resultString.startsWith("-") ? resultString.substring(1) : "-" + resultString;             
+        updateResult();
+    }
 }
