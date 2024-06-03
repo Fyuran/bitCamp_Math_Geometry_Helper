@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,11 +9,51 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <meta charset="utf-8" />
+    <style>
+        .fr {
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 90%;
+            text-align: center;
+        }
+
+            .fr span {
+                display: block;
+            }
+
+        .fd {
+            padding-top: .05em;
+            border-top: .125em black solid;
+        }
+    </style>
     <title>Geometria</title>
 </head>
 <body>
-    <h1>Geometria</h1>
-    <div id="screen">
+
+    <!--Modale introduttivo-->
+    <div class="modal fade" id="opening_modal" tabindex="-1" aria-labelledby="exampleModalLabel" data-bs-backdrop="static" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Geometria</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="showScreen()"></button>
+                </div>
+                <div class="modal-body">
+                    Nella sezione "Geometria" troverai tutto l'aiuto necessario: descrizioni e formule delle principali figure geometriche. Potrai inserire i dati e calcolare facilmente area, perimetro e altre misure utili. Un supporto semplice e chiaro per migliorare le tue competenze geometriche!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="showScreen()">Iniziamo!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!--Tutta la pagina è racchiusa in uno div per mostrare uno schermo vuoto prima del modale introduttivo-->
+    <div id="screen" hidden>
+
+        <h1>Geometria</h1>
+        <!--Sezione con le card descrittive delle figure-->
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-4 d-flex align-items-stretch">
@@ -23,8 +63,8 @@
                             <h5 class="card-title">Quadrati</h5>
                             <p class="card-text">Un quadrato è un poligono regolare con quattro lati della stessa lunghezza e quattro angoli retti, ognuno di 90 gradi. È un caso particolare di rettangolo e di rombo, dove tutti i lati sono uguali e tutti gli angoli interni sono congruenti. Le diagonali di un quadrato si intersecano perpendicolarmente e sono uguali in lunghezza, suddividendo il quadrato in quattro triangoli rettangoli isosceli.</p>
                             <div class="card-footer mt-auto w-100">
-                                <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#square_modal">
-                                    Calcola!
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#square_modal">
+                                    Scopri di più!
                                 </button>
                             </div>
                         </div>
@@ -38,8 +78,8 @@
                             <h5 class="card-title">Rettangoli</h5>
                             <p class="card-text">Un rettangolo è un poligono con quattro lati e quattro angoli retti, ognuno di 90 gradi. I lati opposti di un rettangolo sono paralleli e della stessa lunghezza. Le diagonali di un rettangolo sono uguali in lunghezza e si intersecano nel punto medio, suddividendo il rettangolo in due triangoli congruenti. Un quadrato è un caso particolare di rettangolo, dove tutti i quattro lati sono uguali.</p>
                             <div class="card-footer mt-auto w-100">
-                                <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#rectangle_modal">
-                                    Calcola!
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#rectangle_modal">
+                                    Scopri di più!
                                 </button>
                             </div>
                         </div>
@@ -53,8 +93,8 @@
                             <h5 class="card-title">Triangoli</h5>
                             <p class="card-text">Un triangolo è un poligono con tre lati e tre angoli. I tre lati possono avere lunghezze diverse, e gli angoli interni possono variare, ma la somma degli angoli interni è sempre 180 gradi. I triangoli possono essere classificati in base alla lunghezza dei loro lati (equilatero, isoscele, scaleno). Un triangolo equilatero ha tutti e tre i lati uguali e tutti e tre gli angoli interni di 60 gradi. Un triangolo isoscele ha almeno due lati uguali e due angoli interni uguali. Un triangolo scaleno ha tutti i lati e tutti gli angoli diversi.</p>
                             <div class="card-footer mt-auto w-100">
-                                <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#triangle_modal">
-                                    Calcola!
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#triangle_modal">
+                                    Scopri di più!
                                 </button>
                             </div>
                         </div>
@@ -69,9 +109,9 @@
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">Trapezi</h5>
                             <p class="card-text">Un trapezio è un poligono con quattro lati, dove due lati opposti sono paralleli e si chiamano basi, mentre gli altri due lati non sono paralleli e si chiamano lati obliqui. La somma degli angoli interni di un trapezio è sempre 360 gradi. Un trapezio può essere rettangolo, se ha due angoli retti, isoscele, se i lati obliqui sono uguali e gli angoli alla base sono congruenti, oppure scaleno, se tutti i lati e gli angoli sono diversi.</p>
-                            <div class="card-footer mt-auto w-100">
-                                <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#trapezoid_modal">
-                                    Calcola!
+                            <div class="card-footer mt-auto w-100 ">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#trapezoid_modal">
+                                    Scopri di più!
                                 </button>
                             </div>
                         </div>
@@ -84,14 +124,15 @@
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">Rombi</h5>
                             <p class="card-text">Un rombo è un poligono con quattro lati di uguale lunghezza. Gli angoli opposti di un rombo sono congruenti, e le diagonali si intersecano perpendicolarmente, dividendo il rombo in quattro triangoli rettangoli congruenti. Le diagonali del rombo sono inoltre bisettrici degli angoli interni.</p>
-                            <div class="card-footer mt-auto w-100">
-                                <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#rhombus_modal">
-                                    Calcola!
+                            <div class="card-footer mt-auto w-100 ">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#rhombus_modal">
+                                    Scopri di più!
                                 </button>
                             </div>
                         </div>
                     </div>
                 </div>
+
 
                 <div class="col-12 col-md-4 d-flex align-items-stretch">
                     <div class="card m-5" style="width: 18rem;">
@@ -99,11 +140,348 @@
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">Parallelogrammi</h5>
                             <p class="card-text">Un parallelogramma è un poligono con quattro lati dove i lati opposti sono paralleli e congruenti. Gli angoli opposti di un parallelogramma sono uguali, e le diagonali si intersecano nel punto medio, dividendo il parallelogramma in due triangoli congruenti. Un rettangolo e un rombo sono casi particolari di parallelogrammi.</p>
-                            <div class="card-footer mt-auto w-100">
-                                <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#parallelogram_modal">
-                                    Calcola!
+                            <div class="card-footer mt-auto w-100 ">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#parallelogram_modal">
+                                    Scopri di più!
                                 </button>
                             </div>
                         </div>
                     </div>
-                    </
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 d-flex align-items-stretch">
+                    <div class="card my-5 mx-auto" style="width: 18rem;">
+                        <img src="img/circle.png" class="card-img-top" alt="cerchio">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Cerchi</h5>
+                            <p class="card-text">Un cerchio è una figura piana costituita da tutti i punti equidistanti da un punto fisso chiamato centro. La distanza costante tra il centro e un punto qualsiasi del cerchio è chiamata raggio. Il cerchio è delimitato da una linea curva chiusa chiamata circonferenza, e il diametro è una corda che passa per il centro, misurando il doppio del raggio.</p>
+                            <div class="card-footer mt-auto w-100 ">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#circle_modal">
+                                    Scopri di più!
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modali in cui inserire le formule-->
+    <!--Quadrati-->
+    <div class="modal fade" id="square_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Quadrati</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="card-subtitle mb-2 text-body-secondary">Nomenclatura:</h6>
+                    <form>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Lato=L</li>
+                            <li class="list-group-item">Perimetro=P</li>
+                            <li class="list-group-item">Area=A</li>
+                        </ul>
+                        <hr />
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Formule utili:</h6>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">P= <span id="perimeter_sqr">Lx4</span></li>
+                            <li class="list-group-item">A= <span id="area_sqr">L&#178;</span></li>
+                            <li class="list-group-item">
+                                <label for="side_sqr">Inserisci il lato:</label><br />
+                                <input type="number" id="side_sqr" />
+                            </li>
+                        </ul>
+                        <button type="button" class="btn" onclick="perimeter_square()">Calcola il perimetro!</button>
+                        <button type="button" class="btn" onclick="area_square()">Calcola l'area!</button>
+                        <button class="btn" type="reset" onclick="reset_square()">Reset</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Rettangoli-->
+    <div class="modal fade" id="rectangle_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Rettangoli</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="card-subtitle mb-2 text-body-secondary">Nomenclatura:</h6>
+                    <form>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Base=b</li>
+                            <li class="list-group-item">Altezza=h</li>
+                            <li class="list-group-item">Perimetro=P</li>
+                            <li class="list-group-item">Area=A</li>
+                        </ul>
+                        <hr />
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Formule utili:</h6>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">P= <span id="perimeter_rect">2b+2h</span></li>
+                            <li class="list-group-item">A= <span id="area_rect">b*h</span></li>
+                            <li class="list-group-item">
+                                <label for="base_rect">Inserisci la base:</label><br />
+                                <input type="number" id="base_rect" /><br />
+                                <label for="height_rect">Inserisci l'altezza:</label><br />
+                                <input type="number" id="height_rect" />
+                            </li>
+                        </ul>
+                        <button type="button" class="btn" onclick="perimeter_rectangle()">Calcola il perimetro!</button>
+                        <button type="button" class="btn" onclick="area_rectangle()">Calcola l'area!</button>
+                        <button class="btn" type="reset" onclick="reset_rectangle()">Reset</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Triangoli-->
+    <div class="modal fade" id="triangle_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Triangoli</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="card-subtitle mb-2 text-body-secondary">Nomenclatura:</h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Lato=l</li>
+                        <li class="list-group-item">Altezza=h</li>
+                        <li class="list-group-item">Perimetro=P</li>
+                        <li class="list-group-item">Area=A</li>
+                    </ul>
+                    <hr />
+                    <h6 class="card-subtitle mb-2 text-body-secondary">Formule utili:</h6>
+                    <form>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">P= <span id="perimeter_tri">L&#8321;+L&#8322;+L&#8323;</span></li>
+                            <li class="list-group-item">
+                                A= <span id="area_tri">
+                                    <span class="fr"><span>(b*h)</span><span class="fd">2</span></span>
+                                </span>
+                            </li>
+                            <li class="list-group-item">
+                                <label for="side1_tri">Inserisci i lati:</label><br />
+                                <input type="number" id="side1_tri" placeholder="Lato 1(base)" /><br />
+                                <input type="number" id="side2_tri" placeholder="Lato 2" /><br />
+                                <input type="number" id="side3_tri" placeholder="Lato 3" /><br />
+                                <label for="height_tri">Inserisci l'altezza:</label><br />
+                                <input type="number" id="height_tri" />
+                            </li>
+                        </ul>
+                        <button type="button" class="btn" onclick="perimeter_triangle()">Calcola il perimetro!</button>
+                        <button type="button" class="btn" onclick="area_triangle()">Calcola l'area!</button>
+                        <button class="btn" type="reset" onclick="reset_triangle()">Reset</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Trapezi-->
+
+    <div class="modal fade" id="trapezoid_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Trapezi</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="card-subtitle mb-2 text-body-secondary">Nomenclatura:</h6>
+                    <form>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Base maggiore=B</li>
+                            <li class="list-group-item">Base minore=b</li>
+                            <li class="list-group-item">Altezza=h</li>
+                            <li class="list-group-item">Lato=L</li>
+                            <li class="list-group-item">Perimetro=P</li>
+                            <li class="list-group-item">Area=A</li>
+                        </ul>
+                        <hr />
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Formule utili:</h6>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">P=<span id="perimeter_trap">B+b+2L</span></li>
+                            <li class="list-group-item">
+                                A= <span id="area_trap">
+                                    <span class="fr"><span>(B+b)*h</span><span class="fd">2</span></span>
+                                </span>
+                            </li>
+                            <li class="list-group-item">
+                                <label for="base_B_trap">Inserisci la base maggiore:</label><br />
+                                <input type="number" id="base_B_trap" /><br />
+                                <label for="base_b_trap">Inserisci la base minore:</label><br />
+                                <input type="number" id="base_b_trap" /><br />
+                                <label for="height_trap">Inserisci l'altezza:</label><br />
+                                <input type="number" id="height_trap" /><br />
+                                <label for="side_trap">Inserisci il lato:</label><br />
+                                <input type="number" id="side_trap" />
+                            </li>
+                        </ul>
+                        <button type="button" class="btn" onclick="perimeter_trapezoid()">Calcola il perimetro!</button>
+                        <button type="button" class="btn" onclick="area_trapezoid()">Calcola l'area!</button>
+                        <button class="btn" type="reset" onclick="reset_trapezoid()">Reset</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Rombi-->
+    <div class="modal fade" id="rhombus_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Rombi</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="card-subtitle mb-2 text-body-secondary">Nomenclatura:</h6>
+                    <form>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Diagonale maggiore=D</li>
+                            <li class="list-group-item">Diagonale minore=d</li>
+                            <li class="list-group-item">Lato=L</li>
+                            <li class="list-group-item">Perimetro=P</li>
+                            <li class="list-group-item">Area=A</li>
+                        </ul>
+                        <hr />
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Formule utili:</h6>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">P=<span id="perimeter_rhombus">L*4</span></li>
+                            <li class="list-group-item">
+                                A= <span id="area_rhombus">
+                                    <span class="fr"><span>D*d</span><span class="fd">2</span></span>
+                                </span>
+                            </li>
+                            <li class="list-group-item">
+                                <label for="diagonal_D_rhombus">Inserisci la diagonale maggiore:</label><br />
+                                <input type="number" id="diagonal_D_rhombus" /><br />
+                                <label for="diagonal_d_rhombus">Inserisci la diagonale minore:</label><br />
+                                <input type="number" id="diagonal_d_rhombus" /><br />
+                                <label for="side_rhombus">Inserisci il lato:</label><br />
+                                <input type="number" id="side_rhombus" />
+                            </li>
+                        </ul>
+                        <button type="button" class="btn" onclick="perimeter_rhombus()">Calcola il perimetro!</button>
+                        <button type="button" class="btn" onclick="area_rhombus()">Calcola l'area!</button>
+                        <button class="btn" type="reset" onclick="reset_rhombus()">Reset</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Parallelogrammi-->
+    <div class="modal fade" id="parallelogram_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Parallelogrammi</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="card-subtitle mb-2 text-body-secondary">Nomenclatura:</h6>
+                    <form>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Lati=L</li>
+                            <li class="list-group-item">Basi=b</li>
+                            <li class="list-group-item">Altezza=h</li>
+                            <li class="list-group-item">Perimetro=P</li>
+                            <li class="list-group-item">Area=A</li>
+                        </ul>
+                        <hr />
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Formule utili:</h6>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">P= <span id="perimeter_parallelogram">2b+2L</span></li>
+                            <li class="list-group-item">A= <span id="area_parallelogram">b*h</span></li>
+                            <li class="list-group-item">
+                                <label for="base_parallelogram">Inserisci le basi:</label><br />
+                                <input type="number" id="base_parallelogram" /><br />
+                                <label for="side_parallelogram">Inserisci i lati:</label><br />
+                                <input type="number" id="side_parallelogram" /><br />
+                                <label for="height_parallelogram">Inserisci l'altezza:</label><br />
+                                <input type="number" id="height_parallelogram" />
+                            </li>
+                        </ul>
+                        <button type="button" class="btn" onclick="perimeter_parallelogram()">Calcola il perimetro!</button>
+                        <button type="button" class="btn" onclick="area_parallelogram()">Calcola l'area!</button>
+                        <button class="btn" type="reset"onclick="reset_parallelogram()">Reset</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Cerchi-->
+    <div class="modal fade" id="circle_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Cerchi</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="card-subtitle mb-2 text-body-secondary">Nomenclatura:</h6>
+                    <form>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Raggio=r</li>
+                            <li class="list-group-item">Area=A</li>
+                            <li class="list-group-item">Circonferenza=C</li>
+
+                        </ul>
+                        <hr />
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Formule utili:</h6>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">P= <span id="perimeter_circle">2&#960;r</span></li>
+                            <li class="list-group-item">A= <span id="area_circle">&#960;r&#178;</span></li>
+                            <li class="list-group-item">
+                                <label for="radius_circle">Inserisci il raggio:</label><br />
+                                <input type="number" id="radius_circle" /><br />
+                            </li>
+                        </ul>
+                        <button type="button" class="btn" onclick="perimeter_circle()">Calcola il perimetro!</button>
+                        <button type="button" class="btn" onclick="area_circle()">Calcola l'area!</button>
+                        <button class="btn" type="reset"onclick="reset_circle()">Reset</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/geometry_script.js"></script>
+
+
+
+
+
+</body>
+</html>
