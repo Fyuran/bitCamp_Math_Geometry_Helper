@@ -1,6 +1,8 @@
 .full-width-card {
             width: calc(100vw - 4rem); /* Sottrae il margine a destra e sinistra */
             margin-left: calc(50% - 50vw + 2rem); /* Centra la card con margini */
+            max-width: 600px;
+            padding:20px;
         }
 
         .card-header {
