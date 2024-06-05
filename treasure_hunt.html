@@ -1,0 +1,402 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Daniele Schiavoni - Gruppo Matlab">
+    <meta name="robots" content="geometria, formule, esercizi, matematica">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <meta charset="utf-8" />
+    <title>Caccia al tesoro</title>
+    <style>
+        #screen{
+            margin:auto;
+        }
+        #container_map {
+            margin: 3rem 0.5rem 3rem 1rem;
+            text-align: center;
+        }
+
+        #map {
+            border: solid 4px rgb(104,59,38);
+            border-radius: 0 40px 60px 60px;
+            width: 35rem;
+            max-width: 100%;
+            
+        }
+        .card {
+            margin: 3rem 1rem 3rem 0;
+            border: solid 3px rgb(104,59,38);
+
+            
+        }
+        .row{
+            padding:1rem;
+            border: solid 5px black;
+            border-radius:5rem;
+        }
+        #hint{
+            margin-top:5px;
+            background-color:rgba(0,0,0,0.7);
+            border-radius:15px;
+            color:white;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <!--Modale introduttivo-->
+    <div class="modal fade" id="opening_modal" tabindex="-1" aria-labelledby="exampleModalLabel" data-bs-backdrop="static" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Caccia al tesoro</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="showScreen()"></button>
+                </div>
+                <div class="modal-body">
+                    Benvenuti alla caccia al tesoro! Caro partecipante, sei bloccato in un castello, e l’unico modo per uscire è trovare il portale che è nascosto in fondo ai corridoi. Ma attenzione! La strada è irta di pericolosi troll, che ti lasceranno passare solamente se risponderai correttamente ai loro complessi quesiti matematici e logici.
+                    Oltre a essere un esperto di logica e matematica, sei anche un potente stregone: i tuoi incantesimi sono limitati, ma ti consentiranno di estorcere indizi ai troll o addirittura teletrasportarti nelle stanze successive. Buona fortuna!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="showScreen()">Iniziamo!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="screen" hidden>
+        <h1>Benvenuti alla caccia al tesoro!</h1>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-12">
+                    <div id="container_map">
+                        <img id="map" src="img/treasure_hunt/map0.jpeg" />
+                        <p id="hint"></p>
+                    </div>
+                    <p>Tentativi rimasti: <span id="tries_left">4</span></p>
+                    <p>Indizi rimasti: <span id="hints_left">3</span></p>
+                    <p>Skip rimasti: <span id="skip_left">2</span></p>
+
+                    <button id="start" type="button" class="btn btn-primary" onclick="start()">Inizia il gioco!</button>
+                </div>
+
+                <div class="col-md-6 col-12">
+                    <div id="questions" class="d-flex align-items-stretch">
+                        <div id="quest1" class="card mx-auto" hidden style="width: 18rem;">
+                            <div class="card-body">
+                                <div class="card-header">
+                                    <h5 class="card-title">1.</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Tra dieci anni</h6>
+                                </div>
+                                <p class="card-text">La somma dell'età di cinque ragazzi è 48. Tra 10 anni quale sarà la somma delle loro età?</p>
+                                <ul class="list-group answers list-group-flush">
+                                    <li class="list-group-item">
+                                        <input name="quest1" id="fiftyeight" type="radio" value="false" />
+                                        <label for="fiftyeight">58</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input name="quest1" id="sixtyfour" type="radio" value="false" />
+                                        <label for="sixtyfour">64</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input name="quest1" id="ninetyeight" type="radio" value="true" />
+                                        <label for="ninetyeight">98</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input name="quest1" id="impossible" type="radio" value="false" />
+                                        <label for="impossible">Dati insufficienti</label>
+                                    </li>
+                                </ul>
+                                <hr />
+                                <button class="btn" type="button" onclick="giveHint()">
+                                    Indizio
+                                </button>
+                                <button class="btn" type="button" onclick="skip()">Passa</button>
+                            </div>
+                            <div class="card-footer text-muted">
+                                <button type="button" class="btn" onclick="guess()">Prosegui!</button>
+                                <!--Qui ci devo inserire il punteggio-->
+                            </div>
+                        </div>
+
+
+                        <!--Seconda domanda-->
+                        <div id="quest2" class="card mx-auto" hidden style="width: 18rem;">
+                            <div class="card-body">
+                                <div class="card-header">
+                                    <h5 class="card-title">2.</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">La ninfea</h6>
+                                </div>
+                                <p class="card-text">In uno stagno c'è una foglia di ninfea. Ogni giorno il numero delle foglie si raddoppia: due foglie il secondo giorno, quattro il terzo, otto il quarto e così via. “Se lo stagno si ricopre interamente di foglie il trentesimo giorno, quand'è che sarà coperto per metà?</p>
+                                <ul class="list-group answers list-group-flush">
+                                    <li class="list-group-item">
+                                        <input name="quest2" id="fifteen" type="radio" value="false" />
+                                        <label for="fifteen">15</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input name="quest2" id="twentyeight" type="radio" value="false" />
+                                        <label for="twentyeight">28</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input name="quest2" id="twelve" type="radio" value="false" />
+                                        <label for="twelve">12</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input name="quest2" id="twentynine" type="radio" value="true" />
+                                        <label for="twentynine">29</label>
+                                    </li>
+                                </ul>
+                                <hr />
+                                <button class="btn" type="button" onclick="giveHint()">Indizio</button>
+                                <button class="btn" type="button" onclick="skip()">Passa</button>
+                            </div>
+                            <div class="card-footer text-muted">
+                                <button type="button" class="btn" onclick="guess()">Prosegui!</button>
+                                <!--Qui ci devo inserire il punteggio-->
+                            </div>
+                        </div>
+
+
+                        <!--Terza domanda-->
+                        <div id="quest3" class="card mx-auto" hidden style="width: 18rem;">
+                            <div class="card-body">
+                                <div class="card-header">
+                                    <h5 class="card-title">3.</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">La sequenza</h6>
+                                </div>
+                                <p class="card-text">Quale l'ultimo numero della sequenza?</p>
+                                <p class="card-text">0 - 1 - 1 - 2 - 3 - 5 - 8 - 13 - 21</p>
+                                <ul class="list-group answers list-group-flush">
+                                    <li class="list-group-item">
+                                        <input name="quest3" id="thirtyfour" type="radio" value="true" />
+                                        <label for="thirtyfour">34</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input name="quest3" id="twentyfive" type="radio" value="false" />
+                                        <label for="twentyfive">25</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input name="quest3" id="thirteen" type="radio" value="false" />
+                                        <label for="thirteen">13</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input name="quest3" id="impossible1" type="radio" value="false" />
+                                        <label for="impossible1">Dati insufficienti</label>
+                                    </li>
+                                </ul>
+                                <hr />
+                                <button class="btn" type="button" onclick="giveHint()">Indizio</button>
+                                <button class="btn" type="button" onclick="skip()">Passa</button>
+                            </div>
+                            <div class="card-footer text-muted">
+                                <button type="button" class="btn" onclick="guess()">Prosegui!</button>
+                                <!--Qui ci devo inserire il punteggio-->
+                            </div>
+                        </div>
+
+
+                        <!--Quarta domanda-->
+                        <div id="quest4" class="card mx-auto" hidden style="width: 18rem;">
+                            <div class="card-body">
+                                <div class="card-header">
+                                    <h5 class="card-title">4.</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Il vestito</h6>
+                                </div>
+                                <p class="card-text">Hai comprato un vestito pagandolo 20&euro;. Ma non sei convinta dell'acquisto. Per questo lo rivendi a 15&euro;. Poi però ti penti e lo ricompri a 17&euro;. Ma ti accorgi che il vestito ti sta stretto e decidi di rivenderlo un'altra volta, a 16&euro;. Quanti euro hai perso, grazie alla tua indecisione, rispetto al prezzo iniziale di 20&euro;?</p>
+                                <ul class="list-group answers list-group-flush">
+                                    <li class="list-group-item">
+                                        <input name="quest4" id="four" type="radio" value="false" />
+                                        <label for="four">4&euro;</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input name="quest4" id="six" type="radio" value="true" />
+                                        <label for="six">6&euro;</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input name="quest4" id="five" type="radio" value="false" />
+                                        <label for="five">5&euro;</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input name="quest4" id="none" type="radio" value="false" />
+                                        <label for="none">Non perdo niente.</label>
+                                    </li>
+                                </ul>
+                                <hr />
+                                <button class="btn" type="button" onclick="giveHint()">Indizio</button>
+                                <button class="btn" type="button" onclick="skip()">Passa</button>
+                            </div>
+                            <div class="card-footer text-muted">
+                                <button type="button" class="btn" onclick="guess()">Prosegui!</button>
+                                <!--Qui ci devo inserire il punteggio-->
+                            </div>
+                        </div>
+
+                        <!--Quinta domanda-->
+                        <div id="quest5" class="card mx-auto" hidden style="width: 18rem;">
+                            <div class="card-body">
+                                <div class="card-header">
+                                    <h5 class="card-title">5.</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Napoli - Torino</h6>
+                                </div>
+                                <p class="card-text">Due auto partono una da Napoli e una da Torino e vanno ognuna nell'altra località, viaggiando alla stessa velocità. La distanza Napoli Torino è di 891 km. Se quella di Napoli parte 2 ore prima, quando si incrociano quale delle due è più vicina a Torino?</p>
+                                <ul class="list-group answers list-group-flush">
+                                    <li class="list-group-item">
+                                        <input name="quest5" id="naples" type="radio" value="false" />
+                                        <label for="naples">La macchina da Napoli</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input name="quest5" id="turin" type="radio" value="false" />
+                                        <label for="turin">La macchina da Torino</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input name="quest5" id="same" type="radio" value="true" />
+                                        <label for="same">Hanno la stessa distanza</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input name="quest5" id="impossible2" type="radio" value="false" />
+                                        <label for="impossible2">Dati insufficienti</label>
+                                    </li>
+                                </ul>
+                                <hr />
+                                <button class="btn" type="button" onclick="giveHint()">Indizio</button>
+                                <button class="btn" type="button" onclick="skip()">Passa</button>
+                            </div>
+                            <div class="card-footer text-muted">
+                                <button type="button" class="btn" onclick="guess()">Prosegui!</button>
+                                <!--Qui ci devo inserire il punteggio-->
+                            </div>
+                        </div>
+
+
+                        <!--Sesta domanda-->
+                        <div id="quest6" class="card mx-auto" hidden style="width: 18rem;">
+                            <div class="card-body">
+                                <div class="card-header">
+                                    <h5 class="card-title">6.</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">La diagonale BC</h6>
+                                </div>
+                                <img src="img/treasure_hunt/circle.png" class="card-img-top my_5" alt="cerchio">
+                                <p class="card-text">Un rettangolo è iscritto in un quadrante di un cerchio di raggio 2cm. Quanto misura la diagonale BC?</p>
+                                <ul class="list-group answers list-group-flush">
+                                    <li class="list-group-item">
+                                        <input name="quest6" id="four2" type="radio" value="false" />
+                                        <label for="four2">4</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input name="quest6" id="two" type="radio" value="true" />
+                                        <label for="two">2</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input name="quest6" id="two_point_o" type="radio" value="false" />
+                                        <label for="two_point_o">2,5</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input name="quest6" id="sqrt" type="radio" value="false" />
+                                        <label for="sqrt">1&#8730;2</label>
+                                    </li>
+                                </ul>
+                                <hr />
+                                <button class="btn" type="button" onclick="giveHint()">Indizio</button>
+                                <button class="btn" type="button" onclick="skip()">Passa</button>
+                            </div>
+                            <div class="card-footer text-muted">
+                                <button type="button" class="btn" onclick="guess()">Prosegui!</button>
+                                <!--Qui ci devo inserire il punteggio-->
+                            </div>
+                        </div>
+
+
+                        <!--Settima domanda-->
+                        <div id="quest7" class="card mx-auto" hidden style="width: 18rem;">
+                            <div class="card-body">
+                                <div class="card-header">
+                                    <h5 class="card-title">7.</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">L'età di Antonio</h6>
+                                </div>
+                                <p class="card-text">L'età di Antonio è uguale a otto volte la somma delle cifre della sua età, più uno. Quanti anni ha Antonio?</p>
+                                <ul class="list-group answers list-group-flush">
+                                    <li class="list-group-item">
+                                        <input name="quest7" id="ninetyfive" type="radio" value="false" />
+                                        <label for="ninetyfive">95</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input name="quest7" id="thirtyseven" type="radio" value="false" />
+                                        <label for="thirtyseven">37</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input name="quest7" id="sixteen" type="radio" value="false" />
+                                        <label for="sixteen">16</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input name="quest7" id="fourtyone" type="radio" value="true" />
+                                        <label for="fourtyone">41</label>
+                                    </li>
+                                </ul>
+                                <hr />
+                                <button class="btn" type="button" onclick="giveHint()">Indizio</button>
+                                <button class="btn" type="button" onclick="skip()">Passa</button>
+                            </div>
+                            <div class="card-footer text-muted">
+                                <button type="button" class="btn" onclick="guess()">Prosegui!</button>
+                                <!--Qui ci devo inserire il punteggio-->
+                            </div>
+                        </div>
+
+
+
+                        <!--Ottava domanda-->
+                        <div id="quest8" class="card mx-auto" hidden style="width: 18rem;">
+                            <div class="card-body">
+                                <div class="card-header">
+                                    <h5 class="card-title">8.</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">I 64 cubetti</h6>
+                                </div>
+                                <p class="card-text">Un cubo è realizzato accatastando 64 cubetti uguali. Quanti sono i cubetti a vista?</p>
+                                <ul class="list-group answers list-group-flush">
+                                    <li class="list-group-item">
+                                        <input name="quest8" id="ninetysix" type="radio" value="false" />
+                                        <label for="ninetysix">96</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input name="quest8" id="fiftysix" type="radio" value="true" />
+                                        <label for="fiftysix">56</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input name="quest8" id="sixty" type="radio" value="false" />
+                                        <label for="sixty">60</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input name="quest8" id="fourtytwo" type="radio" value="false" />
+                                        <label for="fourtytwo">42</label>
+                                    </li>
+                                </ul>
+                                <hr />
+                                <button class="btn" type="button" onclick="giveHint()">Indizio</button>
+                                <button class="btn" type="button" onclick="skip()">Passa</button>
+                            </div>
+                            <div class="card-footer text-muted">
+                                <button type="button" class="btn" onclick="guess()">Prosegui!</button>
+                                <!--Qui ci devo inserire il punteggio-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/treasure_hunt.js"></script>
+</body>
+</html>
+
+
+
+
+
