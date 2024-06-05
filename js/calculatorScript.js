@@ -95,12 +95,28 @@ function clearData() {
 
 function updateDisplay() 
 {
-    display.innerText = currentNumber;
+    if(currentNumber != Infinity)
+    {
+        display.innerText = currentNumber;
+    }
+    
+    else
+    {
+        display.innerText = "non calcolabile";
+    }
 }
 
 function updateResult() 
 {
-    display.innerText = result;
+    if(result != Infinity)
+    {
+        display.innerText = result;
+    }
+    
+    else
+    {
+        display.innerText = "non calcolabile";
+    }
 }
 
 function toggleSign() 
