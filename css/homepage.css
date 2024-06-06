@@ -1,0 +1,264 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css") layer(bootstrap);
+
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    font-size: 1em;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #159197;
+}
+
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://c7.alamy.com/compit/ekywb4/sfondo-di-matematica-ekywb4.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+.container-md {
+    background-color: rgba(255, 255, 255, 0.700);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-areas:
+        "sidenav content"
+        "sidenav content"
+        "footer footer";
+}
+
+
+.bottom-footer {
+    grid-area: footer;
+    padding: 5vh;
+    background-color: rgba(0,122,57,1);
+    width: 100%;
+    display: flex;
+    flex-flow:column;
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: center;
+    flex-wrap:wrap;
+}
+
+.sidenav-frame {
+    grid-area: sidenav;
+    background: #00B4DB;
+    background: linear-gradient(to right, #0083B0, #00B4DB);
+    width: 0;
+    height: 0;
+    left: 0;
+    transition: width 0.5s, height 0.5s opacity 0.2s;
+    opacity: 0;
+    z-index: 1;
+}
+
+.sidenav {
+    position: sticky;
+    display: flex;
+    width: inherit;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    top: 10%;
+    gap: 2vh;
+}
+
+    .sidenav a {
+        align-items: center;
+        appearance: none;
+        background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+        border: 0;
+        border-radius: 6px;
+        box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        display: inline-flex;
+        height: 80px;
+        width: 90%;
+        justify-content: center;
+        overflow: hidden;
+        padding-left: 16px;
+        padding-right: 16px;
+        position: relative;
+        text-align: center;
+        transition: box-shadow .15s,transform .15s, opacity 0.2s;
+        touch-action: manipulation;
+        will-change: box-shadow,transform;
+        font-size: 90%;
+        word-wrap: break-word;
+        text-decoration: none;
+        opacity: 0;
+    }
+
+    .sidenav a:focus {
+        box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+    }
+
+    .sidenav a:hover {
+        box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+        transform: translateY(-2px);
+    }
+
+    .sidenav a:active {
+        box-shadow: #3c4fe0 0 3px 7px inset;
+        transform: translateY(2px);
+    }
+
+    .sidenav .goldNavButton {
+        background-image: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%), radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+        background-size: 150%;
+        animation: MoveBackgroundPosition 2s ease-in-out infinite;
+    }
+    .sidenav .goldNavButton:focus {
+        box-shadow: rgba(45, 35, 66, .3) 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(45, 35, 66, .3) 0 -3px 0 inset;
+    }
+
+    .sidenav .goldNavButton:hover {
+        box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(45, 35, 66, .3) 0 -3px 0 inset;
+    }
+
+    .sidenav .goldNavButton:active {
+        box-shadow: rgba(45, 35, 66, .3) 0 3px 7px inset;
+    }
+
+@keyframes MoveBackgroundPosition {
+    0% {
+        background-position: 0% 0%
+    }
+
+    50% {
+        background-position: 50% 50%
+    }
+
+    100% {
+        background-position: 0% 0%
+    }
+}
+
+.logo-img {
+    opacity: 0;
+    transition: opacity 0.2s;
+    max-height: auto;
+    max-width: 90%;
+    clip-path: circle(100% at center);
+}
+
+.menuButton {
+    position: fixed;
+    color: gray;
+    grid-area: menu-button;
+    text-decoration: none;
+    background: #00B4DB;
+    background: linear-gradient(to left, #0083B0, #00B4DB);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 10px;
+    top: 20%;
+    left:0%;
+    text-align: center;
+    border: 0;
+    z-index:1;
+}
+
+    .menuButton:hover {
+        color: #3c4fe0;
+        transform:scale(110%, 110%);
+    }
+
+
+.content-body{
+    grid-area: content;
+    display:flex;
+    flex-direction:column;
+    margin: 10px;
+    justify-content:space-evenly;
+    flex-wrap:wrap;
+}
+
+.homepage-img {
+    max-height: auto;
+    width: 50%;
+}
+
+.arrow {
+    border: inset grey;
+    border-width: 0 5px 5px 0;
+    display: block;
+    padding: 10px;
+}
+
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+@media screen and (max-aspect-ratio: 4/3) {
+
+    .content {
+        grid-template-columns: auto;
+        grid-auto-rows: auto auto auto auto;
+        grid-template-areas:
+            "sidebar"
+            "menu-button"
+            "homepage-content"
+            "footer";
+        place-items:center;
+    }
+
+    .sidenav-frame {
+        opacity:1;
+        position:fixed;
+        top:0;
+        height: 10vh;
+        width: 100%;
+        background: linear-gradient(to bottom, #0083B0, #00B4DB);
+    }
+
+    .menuButton {
+        display:none;
+    }
+
+    .sidenav {
+        flex-direction: row;
+        opacity:1;
+        height:inherit;
+    }
+
+        .sidenav > a {
+
+            padding-left: 16px;
+            padding-right: 16px;
+
+            width: auto;
+            height: 90%;
+            opacity:1;
+        }
+
+    .right {
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+    }
+
+    .logo-img {
+        max-height: 90%;
+        max-width: auto;
+        opacity:1;
+    }
+}
