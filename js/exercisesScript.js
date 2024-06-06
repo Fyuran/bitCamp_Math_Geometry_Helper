@@ -9,7 +9,9 @@ var correctAnswers =
     question4: 3,
     question5: 40,
     question6: 40,
-    question7: 25.12
+    question7: 25.12,
+    question8: 1200,
+    question9: 153
 };
 
 function checkAnswers() {            
@@ -22,6 +24,8 @@ function checkAnswers() {
     let radios3 = document.getElementsByName('question3'); //radiobutton terza domanda
     let radios4 = document.getElementsByName('question4'); //radiobutton quarta domanda
     let radios5 = document.getElementsByName('question5'); //radiobutton quinta domanda
+    let radios6 = document.getElementsByName('question8'); //radiobutton ottava domanda
+    let radios7 = document.getElementsByName('question9'); //radiobutton nona domanda
     let text6 = document.getElementsByName('rectangleQuestion')[0]; //textarea1(trim per togliere gli spazi)
     let text7 = document.getElementsByName('circleQuestion')[0]; //textarea2(trim per togliere gli spazi)
 
@@ -41,14 +45,16 @@ function checkAnswers() {
     checkRadioAnswers(radios3, 'question3');
     checkRadioAnswers(radios4, 'question4');
     checkRadioAnswers(radios5, 'question5');
+    checkRadioAnswers(radios6, 'question8');
+    checkRadioAnswers(radios7, 'question9');
     
     /*richiamo la funzione per verificare il risultato dei textAreas*/
     checkTextAnswers(floatText6, 'question6', text6);
     checkTextAnswers(floatText7, 'question7', text7);
 
     /*aggiorno i valori dei paragrafi*/
-    guessedAnswers.innerHTML = "giuste: " + guessedAnswersCount + "/7";
-    wrongAnswers.innerHTML = "sbagliate: " + wrongAnswersCount + "/7";
+    guessedAnswers.innerHTML = "giuste: " + guessedAnswersCount + "/9";
+    wrongAnswers.innerHTML = "sbagliate: " + wrongAnswersCount + "/9";
     
     console.log("Risposte corrette: " + guessedAnswersCount);
     console.log("Risposte sbagliate: " + wrongAnswersCount);

@@ -6,9 +6,11 @@
     font-size: 1em;
 }
 
+a {
+    text-decoration: none;
+}
+
 body {
-    padding: 0;
-    margin: 0;
     background-color: #159197;
 }
 
@@ -32,16 +34,6 @@ body {
     border-radius: 10px;
 }
 
-.content {
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-template-areas:
-        "sidenav content"
-        "sidenav content"
-        "footer footer";
-}
-
-
 .bottom-footer {
     grid-area: footer;
     padding: 5vh;
@@ -55,56 +47,42 @@ body {
     flex-wrap:wrap;
 }
 
-.sidenav-frame {
-    grid-area: sidenav;
-    background: #00B4DB;
-    background: linear-gradient(to right, #0083B0, #00B4DB);
-    width: 0;
-    height: 0;
-    left: 0;
-    transition: width 0.5s, height 0.5s opacity 0.2s;
-    opacity: 0;
-    z-index: 1;
-}
-
 .sidenav {
-    position: sticky;
+    grid-area: sidebar;
+    position: fixed;
+    top: 0;
+    height: 10vh;
+    width: 100%;
+    background: linear-gradient(to bottom, #0083B0, #00B4DB);
+    transition: width 0.5s, height 0.5s opacity 0.2s;
+    z-index: 1;
     display: flex;
-    width: inherit;
-    flex-direction: column;
-    justify-content: center;
     align-content: center;
+    justify-content: center;
     align-items: center;
-    top: 10%;
     gap: 2vh;
 }
 
     .sidenav a {
         align-items: center;
-        appearance: none;
         background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
-        border: 0;
         border-radius: 6px;
         box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
-        box-sizing: border-box;
         color: #fff;
-        cursor: pointer;
         display: inline-flex;
-        height: 80px;
-        width: 90%;
+        height: 70%;
+        width:200px;
         justify-content: center;
         overflow: hidden;
         padding-left: 16px;
         padding-right: 16px;
-        position: relative;
         text-align: center;
         transition: box-shadow .15s,transform .15s, opacity 0.2s;
-        touch-action: manipulation;
-        will-change: box-shadow,transform;
         font-size: 90%;
         word-wrap: break-word;
-        text-decoration: none;
-        opacity: 0;
+        border-bottom-right-radius:10px;
+        border-bottom-left-radius: 10px;
+        
     }
 
     .sidenav a:focus {
@@ -153,10 +131,9 @@ body {
 }
 
 .logo-img {
-    opacity: 0;
     transition: opacity 0.2s;
-    max-height: auto;
-    max-width: 90%;
+    max-height: 90%;
+    max-width: auto;
     clip-path: circle(100% at center);
 }
 
@@ -170,8 +147,6 @@ body {
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     padding: 10px;
-    top: 20%;
-    left:0%;
     text-align: center;
     border: 0;
     z-index:1;
@@ -183,13 +158,14 @@ body {
     }
 
 
-.content-body{
-    grid-area: content;
-    display:flex;
-    flex-direction:column;
+.content-body {
+    grid-area: content-body;
+    display: flex;
+    flex-direction: column;
     margin: 10px;
-    justify-content:space-evenly;
-    flex-wrap:wrap;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding-top:5%;
 }
 
 .homepage-img {
@@ -207,58 +183,4 @@ body {
 .right {
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
-}
-
-@media screen and (max-aspect-ratio: 4/3) {
-
-    .content {
-        grid-template-columns: auto;
-        grid-auto-rows: auto auto auto auto;
-        grid-template-areas:
-            "sidebar"
-            "menu-button"
-            "homepage-content"
-            "footer";
-        place-items:center;
-    }
-
-    .sidenav-frame {
-        opacity:1;
-        position:fixed;
-        top:0;
-        height: 10vh;
-        width: 100%;
-        background: linear-gradient(to bottom, #0083B0, #00B4DB);
-    }
-
-    .menuButton {
-        display:none;
-    }
-
-    .sidenav {
-        flex-direction: row;
-        opacity:1;
-        height:inherit;
-    }
-
-        .sidenav > a {
-
-            padding-left: 16px;
-            padding-right: 16px;
-
-            width: auto;
-            height: 90%;
-            opacity:1;
-        }
-
-    .right {
-        transform: rotate(45deg);
-        -webkit-transform: rotate(45deg);
-    }
-
-    .logo-img {
-        max-height: 90%;
-        max-width: auto;
-        opacity:1;
-    }
 }

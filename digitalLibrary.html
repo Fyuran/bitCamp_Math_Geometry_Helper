@@ -7,134 +7,152 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-
+    <link href="css/homepage.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/digitalLibrary.css">
 
 </head>
 <body>
-    <div class="container">
-        <!--books & articles-->
-        <div class="row mt-5 mb-5">
-            <div class="col-12 col-sm-6 col-md-3">
-                <div class="card">                    
-                    <h6 class="card-subtitle mt-2 mb-1" style="text-align: center; color: rgba(62,96,253,1);">Libri</h6>
-                    <img src="img/matematica-360.png" class="img-fluid" alt="Immagine 1">
-                    <div class="card-body">
-                        <h5 class="card-title"><b>Matematica a 360°</b></h5>
-                        <p class="card-text">"Matematica a 360°" è il libro ideale per gli studenti delle scuole elementari. Con spiegazioni chiare, esercizi pratici e colorate illustrazioni, rende l'apprendimento della matematica divertente e coinvolgente. Perfetto per costruire una solida base matematica in modo semplice e stimolante.</p>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#book_modal">Visualizza</button>
+    <div class="background-image"></div>
+
+    <div class="sidenav">
+        <img class="logo-img" src="img/logo.png" />
+        <a href="index.html">Home</a>
+        <a href="calculator.html">Calcolatrice</a>
+        <a href="geometry.html">Geometria</a>
+        <a href="exercises.html">Esercizi</a>
+        <a href="digitalLibrary.html">Libreria Digitale</a>
+        <a href="treasure_hunt.html" class="goldNavButton">Caccia al Tesoro</a>
+    </div>
+
+    <div class="content-body">
+        <div class="container">
+            <!--books & articles-->
+            <div class="row mt-5 mb-5">
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="card">
+                        <h6 class="card-subtitle mt-2 mb-1" style="text-align: center; color: rgba(62,96,253,1);">Libri</h6>
+                        <img src="img/matematica-360.png" class="img-fluid" alt="Immagine 1">
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Matematica a 360°</b></h5>
+                            <p class="card-text">"Matematica a 360°" è il libro ideale per gli studenti delle scuole elementari. Con spiegazioni chiare, esercizi pratici e colorate illustrazioni, rende l'apprendimento della matematica divertente e coinvolgente. Perfetto per costruire una solida base matematica in modo semplice e stimolante.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#book_modal">Visualizza</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="card">
+                        <h6 class="card-subtitle mt-2 mb-1" style="text-align: center; color: rgba(62,96,253,1);">Libri</h6>
+                        <img src="img/geometria.jpg" class="img-fluid" alt="Immagine 2">
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Imparo la geometria</b></h5>
+                            <p class="card-text">"Imparo la geometria" è il libro ideale per gli studenti delle scuole elementari. Con spiegazioni chiare, esercizi pratici e vivaci illustrazioni, rende l'apprendimento della geometria facile e divertente. Perfetto per sviluppare una solida comprensione dei concetti geometrici fondamentali.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#book_modal2">Visualizza</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="card">
+                        <h6 class="card-subtitle mt-2 mb-1" style="text-align: center; color: rgba(62,96,253,1);">Articoli</h6>
+                        <img src="img/article1.jpg" class="img-fluid" alt="Immagine 3">
+                        <div class="card-body">
+                            <h5 class="card-title"><b>L'importanza della matematica</b></h5>
+                            <p class="card-text">Tizio Incognito spiega come la matematica supporta la scienza e sviluppa il pensiero logico. Con esempi chiari e applicazioni pratiche, rende evidente il ruolo cruciale della matematica nella comprensione del mondo e nella risoluzione dei problemi.</p>
+                            <a href="https://www.superprof.it/blog/applicazioni-concrete-della-scienza-dei-numeri/" class="btn btn-primary" target="_blank">Visualizza</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="card">
+                        <h6 class="card-subtitle mt-2 mb-1" style="text-align: center; color: rgba(62,96,253,1);">Articoli</h6>
+                        <img src="img/homepage_img1.jpg" class="img-fluid" alt="Immagine 4">
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Storia della Geometria</b></h5>
+                            <p class="card-text">Lionel Hutz ci racconta attraverso racconti affascinanti e illustrazioni vivaci, come le scoperte geometriche abbiano modellato il nostro mondo e influenzato il pensiero scientifico e matematico durante i secoli, dalle basi gettate dagli antichi egizi alla Geometria Computazionale dei giorni nostri. </p>
+                            <a href="https://dium.uniud.it/it/ricerca/research-highlights/filosofia/storia-della-geometria-proiettiva-e-fondamenti-della-matematica-nel-xix-secolo/" class="btn btn-primary" target="_blank">Visualizza</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-sm-6 col-md-3">
-                <div class="card">
-                    <h6 class="card-subtitle mt-2 mb-1" style="text-align: center; color: rgba(62,96,253,1);">Libri</h6>
-                    <img src="img/geometria.jpg" class="img-fluid" alt="Immagine 2">
-                    <div class="card-body">
-                        <h5 class="card-title"><b>Imparo la geometria</b></h5>
-                        <p class="card-text">"Imparo la geometria" è il libro ideale per gli studenti delle scuole elementari. Con spiegazioni chiare, esercizi pratici e vivaci illustrazioni, rende l'apprendimento della geometria facile e divertente. Perfetto per sviluppare una solida comprensione dei concetti geometrici fondamentali.</p>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#book_modal2">Visualizza</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-3">
-                <div class="card">
-                    <h6 class="card-subtitle mt-2 mb-1" style="text-align: center; color: rgba(62,96,253,1);">Articoli</h6>
-                    <img src="img/article1.jpg" class="img-fluid" alt="Immagine 3">
-                    <div class="card-body">
-                        <h5 class="card-title"><b>L'importanza della matematica</b></h5>
-                        <p class="card-text">Tizio Incognito spiega come la matematica supporta la scienza e sviluppa il pensiero logico. Con esempi chiari e applicazioni pratiche, rende evidente il ruolo cruciale della matematica nella comprensione del mondo e nella risoluzione dei problemi.</p>
-                        <a href="https://www.superprof.it/blog/applicazioni-concrete-della-scienza-dei-numeri/" class="btn btn-primary" target="_blank">Visualizza</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-3">
-                <div class="card">
-                    <h6 class="card-subtitle mt-2 mb-1" style="text-align: center; color: rgba(62,96,253,1);">Articoli</h6>
-                    <img src="img/homepage_img1.jpg" class="img-fluid" alt="Immagine 4">
-                    <div class="card-body">
-                        <h5 class="card-title"><b>Storia della Geometria</b></h5>                        
-                        <p class="card-text">Lionel Hutz ci racconta attraverso racconti affascinanti e illustrazioni vivaci, come le scoperte geometriche abbiano modellato il nostro mondo e influenzato il pensiero scientifico e matematico durante i secoli, dalle basi gettate dagli antichi egizi alla Geometria Computazionale dei giorni nostri. </p>
-                        <a href="https://dium.uniud.it/it/ricerca/research-highlights/filosofia/storia-della-geometria-proiettiva-e-fondamenti-della-matematica-nel-xix-secolo/" class="btn btn-primary" target="_blank">Visualizza</a>
-                    </div>
-                </div>
-            </div>
-        </div>
 
             <!--videos-->
 
-        <div class="row mt-5 mb-5">
-            <div class="col-12 col-sm-6 col-md-6">
-                <div class="card">
-                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nI365Xx_eQY?si=NK0ubaCbZyJ3xJ7O" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    <div class="card-body">
-                        <h5 class="card-title"><b>Matematica dei greci</b></h5>                        
-                        <p class="card-text">Unisciti a Lionel Hutz mentre ci racconta come le scoperte matematiche dei Greci abbiano gettato le basi della matematica moderna. Esploreremo il lavoro di grandi matematici come Pitagora, Euclide e Archimede, analizzando i teoremi e i principi geometrici e le loro applicazioni pratiche nell'antichità.</p>
+            <div class="row mt-5 mb-5">
+                <div class="col-12 col-sm-6 col-md-6">
+                    <div class="card">
+                        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nI365Xx_eQY?si=NK0ubaCbZyJ3xJ7O" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Matematica dei greci</b></h5>
+                            <p class="card-text">Unisciti a Lionel Hutz mentre ci racconta come le scoperte matematiche dei Greci abbiano gettato le basi della matematica moderna. Esploreremo il lavoro di grandi matematici come Pitagora, Euclide e Archimede, analizzando i teoremi e i principi geometrici e le loro applicazioni pratiche nell'antichità.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-12 col-sm-6 col-md-6">
+                    <div class="card">
+                        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/kGUqJ7VL05o?si=tLRQRXlZNP_EzVRj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Un viaggio tra i numeri</b></h5>
+                            <p class="card-text">Barney Gumble ci spiega i concetti fondamentali dei numeri e del calcolo. Partendo dai numeri interi e decimali, passando per le frazioni e i numeri razionali, fino ad arrivare ai numeri irrazionali e complessi. Infine verranno approfondite le operazioni aritmetiche di base come addizione, sottrazione, moltiplicazione e divisione.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        
 
-            <div class="col-12 col-sm-6 col-md-6">
-                <div class="card">
-                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/kGUqJ7VL05o?si=tLRQRXlZNP_EzVRj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    <div class="card-body">
-                        <h5 class="card-title"><b>Un viaggio tra i numeri</b></h5>                        
-                        <p class="card-text">Barney Gumble ci spiega i concetti fondamentali dei numeri e del calcolo. Partendo dai numeri interi e decimali, passando per le frazioni e i numeri razionali, fino ad arrivare ai numeri irrazionali e complessi. Infine verranno approfondite le operazioni aritmetiche di base come addizione, sottrazione, moltiplicazione e divisione.</p>
+            <!--modale-->
+
+            <div class="modal fade" id="book_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="img/matematica-360.png" class="img-fluid" alt="Immagine 1" style="object-fit: scale-down;">
+                            <hr>
+                            <p>
+                                "Matematica a 360°" è un libro progettato specificamente per gli studenti delle scuole elementari, pensato per rendere l'apprendimento della matematica un'esperienza coinvolgente e divertente. Attraverso spiegazioni chiare e semplici, il libro aiuta i giovani studenti a comprendere concetti matematici fondamentali con facilità. Ogni capitolo è arricchito con illustrazioni colorate che rendono i concetti astratti più concreti e accessibili.
+                                Il libro include una vasta gamma di esercizi pratici, progettati per rafforzare le competenze apprese e stimolare il pensiero critico. Gli esercizi variano da semplici problemi di calcolo a sfide più complesse, promuovendo un approccio graduale che permette agli studenti di costruire una solida base matematica.
+                                "Matematica a 360°" è strutturato in modo da coprire tutte le principali aree della matematica elementare, tra cui l'aritmetica, la geometria, le frazioni, i decimali e le misure. Ogni sezione del libro è pensata per sviluppare specifiche competenze, garantendo che gli studenti non solo imparino a risolvere problemi, ma anche a capire il perché dietro le soluzioni.
+                                Un ulteriore punto di forza del libro è l'inclusione di giochi matematici e attività pratiche, che incoraggiano l'apprendimento attraverso il gioco e l'esplorazione. Queste attività sono progettate per stimolare la curiosità e mantenere alto il livello di interesse degli studenti, rendendo la matematica non solo comprensibile ma anche divertente.
+                                Inoltre, "Matematica a 360°" offre consigli pratici per insegnanti e genitori, fornendo strategie su come supportare e motivare i bambini nel loro percorso di apprendimento. Con il suo approccio completo e interattivo, questo libro rappresenta un eccellente strumento educativo, ideale per costruire una solida base matematica in modo semplice, stimolante e piacevole.
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="https://www.amazon.it/Matematica-360%C2%B0-Classe-Scuola-elementare/dp/8847240514" class="btn btn-primary" target="_blank">Acquista</a>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="modal fade" id="book_modal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="img/geometria.jpg" class="img-fluid" alt="Immagine 2" style="object-fit: scale-down;">
+                            <hr>
+                            <p>
+                                "Imparo la geometria" è un libro appositamente creato per gli studenti delle scuole elementari, con l'obiettivo di rendere l'apprendimento della geometria un'attività piacevole e accessibile. Le spiegazioni chiare e concise guidano i giovani studenti attraverso i concetti fondamentali della geometria, rendendo più facile la comprensione di argomenti spesso considerati complessi.
+                                Ogni capitolo del libro è arricchito con vivaci illustrazioni che aiutano a visualizzare i concetti geometrici, facilitando l'assimilazione delle informazioni e rendendo lo studio più interessante. Le immagini colorate e dettagliate trasformano le nozioni astratte in rappresentazioni concrete, rendendo l'apprendimento più efficace e divertente.
+                                "Imparo la geometria" include una vasta gamma di esercizi pratici, pensati per rafforzare le competenze apprese e per incoraggiare il pensiero critico e logico. Gli esercizi spaziano da semplici attività di riconoscimento delle forme a problemi più complessi di misurazione e disegno, offrendo un percorso di apprendimento progressivo che permette agli studenti di costruire una solida base geometrica.
+                                Il libro copre tutte le principali aree della geometria elementare, inclusi i punti, le linee, gli angoli, le forme bidimensionali e tridimensionali, e le proprietà delle figure geometriche. Ogni sezione è progettata per sviluppare specifiche competenze geometriche, garantendo che gli studenti non solo imparino a riconoscere e disegnare le forme, ma anche a comprendere le loro proprietà e relazioni.
+                                Un ulteriore punto di forza di "Imparo la geometria" è l'inclusione di attività interattive e giochi didattici, che rendono lo studio della geometria un'esperienza dinamica e coinvolgente. Queste attività sono progettate per stimolare la curiosità e mantenere alto l'interesse degli studenti, promuovendo un apprendimento attivo e partecipativo.
+                                Inoltre, il libro offre suggerimenti pratici per insegnanti e genitori su come supportare e motivare i bambini nel loro percorso di apprendimento della geometria. Con il suo approccio completo e interattivo, "Imparo la geometria" rappresenta un eccellente strumento educativo, ideale per sviluppare una solida comprensione dei concetti geometrici fondamentali in modo semplice, stimolante e piacevole.
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="https://giuntiedu.it/products/imparo-la-geometria-cl-4-5-lucangeli-daniela-9788809879225?variant=44456276525332&currency=EUR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&utm_source=google&utm_medium=cpc&utm_campaign=20267722307&utm_content=&utm_term=&gad_source=1&gclid=CjwKCAjwmYCzBhA6EiwAxFwfgOvT1gl_OfGf_jqFVTKsRtWYj41kpq3MHu4wso_ewP48k6fRBon_6xoCCXAQAvD_BwE" class="btn btn-primary" target="_blank">Acquista</a>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!--modale-->
-
-        <div class="modal fade" id="book_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <img src="img/matematica-360.png" class="img-fluid" alt="Immagine 1" style="object-fit: scale-down;">
-                        <hr>
-                        <p>"Matematica a 360°" è un libro progettato specificamente per gli studenti delle scuole elementari, pensato per rendere l'apprendimento della matematica un'esperienza coinvolgente e divertente. Attraverso spiegazioni chiare e semplici, il libro aiuta i giovani studenti a comprendere concetti matematici fondamentali con facilità. Ogni capitolo è arricchito con illustrazioni colorate che rendono i concetti astratti più concreti e accessibili.
-                            Il libro include una vasta gamma di esercizi pratici, progettati per rafforzare le competenze apprese e stimolare il pensiero critico. Gli esercizi variano da semplici problemi di calcolo a sfide più complesse, promuovendo un approccio graduale che permette agli studenti di costruire una solida base matematica.                            
-                            "Matematica a 360°" è strutturato in modo da coprire tutte le principali aree della matematica elementare, tra cui l'aritmetica, la geometria, le frazioni, i decimali e le misure. Ogni sezione del libro è pensata per sviluppare specifiche competenze, garantendo che gli studenti non solo imparino a risolvere problemi, ma anche a capire il perché dietro le soluzioni.                            
-                            Un ulteriore punto di forza del libro è l'inclusione di giochi matematici e attività pratiche, che incoraggiano l'apprendimento attraverso il gioco e l'esplorazione. Queste attività sono progettate per stimolare la curiosità e mantenere alto il livello di interesse degli studenti, rendendo la matematica non solo comprensibile ma anche divertente.                            
-                            Inoltre, "Matematica a 360°" offre consigli pratici per insegnanti e genitori, fornendo strategie su come supportare e motivare i bambini nel loro percorso di apprendimento. Con il suo approccio completo e interattivo, questo libro rappresenta un eccellente strumento educativo, ideale per costruire una solida base matematica in modo semplice, stimolante e piacevole.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="https://www.amazon.it/Matematica-360%C2%B0-Classe-Scuola-elementare/dp/8847240514" class="btn btn-primary" target="_blank">Acquista</a>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="modal fade" id="book_modal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <img src="img/geometria.jpg" class="img-fluid" alt="Immagine 2" style="object-fit: scale-down;">
-                        <hr>
-                        <p>"Imparo la geometria" è un libro appositamente creato per gli studenti delle scuole elementari, con l'obiettivo di rendere l'apprendimento della geometria un'attività piacevole e accessibile. Le spiegazioni chiare e concise guidano i giovani studenti attraverso i concetti fondamentali della geometria, rendendo più facile la comprensione di argomenti spesso considerati complessi.
-                            Ogni capitolo del libro è arricchito con vivaci illustrazioni che aiutano a visualizzare i concetti geometrici, facilitando l'assimilazione delle informazioni e rendendo lo studio più interessante. Le immagini colorate e dettagliate trasformano le nozioni astratte in rappresentazioni concrete, rendendo l'apprendimento più efficace e divertente.                            
-                            "Imparo la geometria" include una vasta gamma di esercizi pratici, pensati per rafforzare le competenze apprese e per incoraggiare il pensiero critico e logico. Gli esercizi spaziano da semplici attività di riconoscimento delle forme a problemi più complessi di misurazione e disegno, offrendo un percorso di apprendimento progressivo che permette agli studenti di costruire una solida base geometrica.                            
-                            Il libro copre tutte le principali aree della geometria elementare, inclusi i punti, le linee, gli angoli, le forme bidimensionali e tridimensionali, e le proprietà delle figure geometriche. Ogni sezione è progettata per sviluppare specifiche competenze geometriche, garantendo che gli studenti non solo imparino a riconoscere e disegnare le forme, ma anche a comprendere le loro proprietà e relazioni.                            
-                            Un ulteriore punto di forza di "Imparo la geometria" è l'inclusione di attività interattive e giochi didattici, che rendono lo studio della geometria un'esperienza dinamica e coinvolgente. Queste attività sono progettate per stimolare la curiosità e mantenere alto l'interesse degli studenti, promuovendo un apprendimento attivo e partecipativo.                            
-                            Inoltre, il libro offre suggerimenti pratici per insegnanti e genitori su come supportare e motivare i bambini nel loro percorso di apprendimento della geometria. Con il suo approccio completo e interattivo, "Imparo la geometria" rappresenta un eccellente strumento educativo, ideale per sviluppare una solida comprensione dei concetti geometrici fondamentali in modo semplice, stimolante e piacevole.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="https://giuntiedu.it/products/imparo-la-geometria-cl-4-5-lucangeli-daniela-9788809879225?variant=44456276525332&currency=EUR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&utm_source=google&utm_medium=cpc&utm_campaign=20267722307&utm_content=&utm_term=&gad_source=1&gclid=CjwKCAjwmYCzBhA6EiwAxFwfgOvT1gl_OfGf_jqFVTKsRtWYj41kpq3MHu4wso_ewP48k6fRBon_6xoCCXAQAvD_BwE" class="btn btn-primary" target="_blank">Acquista</a>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
-                    </div>
-                </div>
-            </div>
-        </div>    
-    </div>        
+    </div>
 </body>
 </html>

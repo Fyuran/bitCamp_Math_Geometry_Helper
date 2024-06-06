@@ -3,7 +3,7 @@ function manageNavbar() {
     let isHorizontal = window.matchMedia("(max-aspect-ratio: 4/3)").matches;
 
 
-    let isNavbarCollapsed = isHorizontal ? (sideNavbar.offsetHeight == 0) : (sideNavbar.offsetWidth == 0);
+    let isNavbarCollapsed = sideNavbar.offsetHeight == 0;
     let opacity = isNavbarCollapsed ? 1 : 0;
     let size = isNavbarCollapsed ? "10vmax" : 0;
 
@@ -13,15 +13,8 @@ function manageNavbar() {
         }
     }
 
-    if (isHorizontal) {
-        sideNavbar.style.height = size;
-        sideNavbar.style.width = "100%";
-    }
-    else {
-        sideNavbar.style.height = "100%";
-        sideNavbar.style.width = size;
-    }
-
+    sideNavbar.style.height = size;
+    sideNavbar.style.width = "100%";
     sideNavbar.style.opacity = opacity;
 }
 

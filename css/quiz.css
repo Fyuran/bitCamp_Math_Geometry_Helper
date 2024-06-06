@@ -1,49 +1,9 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    background-color: #159197;
-    margin: 0;
-    padding: 0;
-}
-.background-image {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://c7.alamy.com/compit/ekywb4/sfondo-di-matematica-ekywb4.jpg'); /* Percorso dell'immagine */
-    background-size: cover; /* Copre l'intera area senza distorsioni */
-    background-repeat: no-repeat; /* Evita la ripetizione dell'immagine */
-    background-position: center center; /* Centra l'immagine */
-    opacity: 0.2; /* Imposta l'opacità desiderata */
-    z-index: -1; /* Posiziona l'immagine dietro al contenuto */
-}
-
-.content {
-    position: relative;
-    z-index: 1; /* Posiziona il contenuto sopra l'immagine di background */
+.titles {
     color: #fff; /* Colore del testo per visibilità */
     padding: 20px;
     text-align: center;
     font-family: Arial, sans-serif;
 }
-.title-container {
-    background-color: #007bff;
-    border-radius: 15px;
-    padding: 20px 40px;
-    text-align: center;
-}
-
-#quiz-container {
-    
-    margin: 10px;;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
 h1 {
     text-align: center;
 }
