@@ -67,6 +67,37 @@
         </div>
     </div>
 
+
+    <!--Modale di vittoria-->
+    <div class="modal fade" id="win_modal" tabindex="-1" aria-labelledby="exampleModalLabel" data-bs-backdrop="static" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Sei arrivato fino al portale!</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="showScreen()"></button>
+                </div>
+                <div class="modal-body">
+                    Congratulazioni, potente stregone! Hai superato tutti gli ostacoli e risolto i complessi quesiti matematici e logici dei troll. Con il tuo ingegno e la tua magia, hai trovato il portale nascosto e sei riuscito a liberarti dal castello. La tua leggenda continuerà a essere raccontata per generazioni. Bravo!"
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modale di sconfitta-->
+    <div class="modal fade" id="lose_modal" tabindex="-1" aria-labelledby="exampleModalLabel" data-bs-backdrop="static" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Sarà per la prossima volta!</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="showScreen()"></button>
+                </div>
+                <div class="modal-body">
+                    Ahimè, caro stregone. I troll e i loro enigmi si sono dimostrati troppo difficili questa volta. Nonostante i tuoi sforzi e la tua magia, non sei riuscito a trovare il portale per fuggire dal castello. Non scoraggiarti, però! Ogni fallimento è un'opportunità per imparare e migliorare. Riprova ancora, la tua vittoria ti aspetta al prossimo tentativo.
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="screen" hidden>
         <h1>Benvenuti alla caccia al tesoro!</h1>
 

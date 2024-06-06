@@ -16,7 +16,15 @@ var skips = 2;
 var tries_left = 4;
 //dichiarazione variabili: un carosello per le immagini della mappa, e le variabili "questions" e "answer" che vengono progressivamente scelte dalle
 //liste parent
-var maps = ["img/treasure_hunt/map0.jpeg", "img/treasure_hunt/map1.jpeg", "img/treasure_hunt/map2.jpeg", "img/treasure_hunt/map3.jpeg", "img/treasure_hunt/map4.jpeg", "img/treasure_hunt/map5.jpeg", "img/treasure_hunt/map6.jpeg", "img/treasure_hunt/map7.jpeg", "img/treasure_hunt/map8.jpeg"];
+var maps = ["img/treasure_hunt/map0.jpeg",
+    "img/treasure_hunt/map1.jpeg",
+    "img/treasure_hunt/map2.jpeg",
+    "img/treasure_hunt/map3.jpeg",
+    "img/treasure_hunt/map4.jpeg",
+    "img/treasure_hunt/map5.jpeg",
+    "img/treasure_hunt/map6.jpeg",
+    "img/treasure_hunt/map7.jpeg",
+    "img/treasure_hunt/map8.jpeg"];
 var map = document.getElementById("map");
 //Lista con i nomi delle domande e gli id delle risposte, per poter avanzare progressivamente
 var questions = ["quest1", "quest2", "quest3", "quest4", "quest5", "quest6", "quest7", "quest8"];
@@ -51,38 +59,40 @@ function start() {//Reset di tutti i valori: mappa, punti, hints e skips
 function guess() {//cuore del gioco
 
     
-    if (tries_left > 0) {//Se ci sono ancora tentativi il gioco parte
+    if (tries_left > 1) {//Se ci sono ancora tentativi il gioco parte
         for (i = 0; i <= maps.length; i++) {//ciclo for che trova quale risposta è checked
             if (answer[i].checked) {
-                if (answer[i].value == "true") {//Se la risposta è giusta, tutti i valori vengono aggiornati
-                    alert("Risposta esatta!");
-                    question.setAttribute("hidden", "");
-                    level_index++;
-                    map.src = maps[level_index];
-                    question = document.getElementById(questions[level_index]);
-                    question.removeAttribute("hidden");
-                    answer = document.getElementsByName(questions[level_index]);
-                    hint = hints[level_index];
-                    document.getElementById("hint").innerText = "";
-                    document.getElementById("hints_left").innerText = hints_left;
-                    document.getElementById("skip_left").innerText = skips;
-                    
-
+                if (answer[i].value == "true") {//Se la risposta è giusta, vengono aggiornati i seguenti valori:
+                    question.setAttribute("hidden", "");//la domanda viene nascosta
+                    level_index++;//il livello sale di uno
+                    question.setAttribute("hidden", "");//la domanda viene nascosta
+                    if (level_index < questions.length) {//Si fa un controllo per vedere se è stata indovinata l'ultima domanda
+                        map.src = maps[level_index];//Se non è così, si aggiorna mappa, domanda, risposta e indizio
+                        question = document.getElementById(questions[level_index]);
+                        question.removeAttribute("hidden");
+                        answer = document.getElementsByName(questions[level_index]);
+                        hint = hints[level_index];
+                        document.getElementById("hint").innerText = "";
+                    }
+                    else {
+                        map.src = maps[level_index];//altrimenti, si mostra il modale di vittoria
+                        var win_modal = new bootstrap.Modal(document.getElementById("win_modal"));
+                        win_modal.show();
+                    }
                 }
                 else {
                     alert("Risposta errata! Riprova!");
                     tries_left--;
                     answer[i].checked = false;
-                    if (tries_left <= 0) {
-                        alert("Tentativi esauriti")
-                    }
+                    
                 }
             }
-            document.getElementById("tries_left").innerHTML = tries_left;
+            //document.getElementById("tries_left").innerHTML = tries_left;
         }
     }
     else {
-        alert("Hai perso!");
+        var lose_modal = new bootstrap.Modal(document.getElementById("lose_modal"));
+        lose_modal.show();
     }
     
 }
@@ -100,17 +110,28 @@ function giveHint() {//Se il giocatore non sa rispondere a una domanda, potrà c
 
 function skip() {//Se il giocatore non sa rispondere a una domanda, potrà saltarne fino a 2
     if (skips > 0) {
-        question.setAttribute("hidden", "");//Per evitare un bug che non sono riuscito a risolvere, per ora il bottone sparisce a inizio partita
+        question.setAttribute("hidden", "");//Il gioco si comporta come si comporta quando si indovina la risposta
         level_index++;
-        map.src = maps[level_index];
-        question = document.getElementById(questions[level_index]);
-        question.removeAttribute("hidden");
         skips--;
-        answer = document.getElementsByName(questions[level_index]);
-        hint = hints[level_index];
-        document.getElementById("hint").innerText = "";
-        document.getElementById("skip_left").innerText = skips;
+        if (level_index < questions.length) {
+            map.src = maps[level_index];
+            question = document.getElementById(questions[level_index]);
+            question.removeAttribute("hidden");
+            answer = document.getElementsByName(questions[level_index]);
+            hint = hints[level_index];
+            document.getElementById("hint").innerText = "";
+        }
+        else {
+            map.src = maps[level_index];
+            var win_modal = new bootstrap.Modal(document.getElementById("win_modal"));
+            win_modal.show();
+        }
     }
+
+
+
+        
+    
     else {
         document.getElementById("hint").innerText = "Skips esauriti!";
     }
