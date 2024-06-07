@@ -16,6 +16,7 @@
         }
 
         #container_map {
+            
             margin: 3rem 0.5rem 3rem 1rem;
             text-align: center;
         }
@@ -48,19 +49,29 @@
     <link href="css/homepage.css" rel="stylesheet" />
 </head>
 <body>
+    <!-- navbar-->
     <div class="background-image"></div>
-    <div class="sidenav">
-        <img class="logo-img" src="img/logo.png" />
-        <a href="index.html">Home</a>
-        <a href="calculator.html">Calcolatrice</a>
-        <a href="geometry.html">Geometria</a>
-        <a href="exercises.html">Esercizi</a>
-        <a href="digitalLibrary.html">Libreria Digitale</a>
-        <a href="treasure_hunt.html" class="goldNavButton">Caccia al Tesoro</a>
+    
+    <div>
+        <div class="sidenav">
+            <img class="logo-img" src="img/logo.png" />
+           <a href="index.html">Home</a>
+           <a href="calculator.html">Calcolatrice</a>
+           <a href="geometry.html">Geometria</a>
+           <a href="exercises.html">Esercizi</a>
+           <a href="digitalLibrary.html">Libreria Digitale</a>
+           <a href="treasure_hunt.html" class="goldNavButton">Caccia al Tesoro</a>
+        </div>
+    </div>
+    
+<!-- fine navbar-->
+
+    <div style="text-align: center; margin-top: 110px; margin-bottom: 10px;">
+        <h1 style="color: white;">Benvenuti alla caccia al tesoro!</h1>
     </div>
 
     <div class="content-body">
-        <div class="container-md">
+        <div class="container-md" style="margin-bottom: 30px;">
             <!--Modale introduttivo-->
             <div class="modal fade" id="opening_modal" tabindex="-1" aria-labelledby="exampleModalLabel" data-bs-backdrop="static" aria-hidden="true">
                 <div class="modal-dialog">
@@ -111,9 +122,7 @@
                 </div>
             </div>
 
-            <div id="screen" hidden>
-                <h1>Benvenuti alla caccia al tesoro!</h1>
-
+            
 
                 <div class="container">
                     <div class="row">
@@ -437,6 +446,21 @@
         </div>
     </div>
     <script src="js/treasure_hunt.js"></script>
+
+    <footer class="bottom-footer">
+        <div>
+            <i class="bi bi-facebook fs-2"></i>
+            <i class="bi bi-twitter fs-2"></i>
+            <i class="bi bi-instagram fs-2"></i>
+            <i class="bi bi-youtube fs-2"></i>
+        </div>
+        <div>
+            <h2>Geometry Helper è un progetto di Team MatLab ™</h2>
+            <div style="text-align: center;">
+                <a href="https://www.linkedin.com/in/alessio-cappai-59274952/" target="_blank">Alessio Cappai</a> - <a href="https://www.linkedin.com/in/daniel-camuffo-79359826b" target="_blank">Daniel Camuffo</a> - <a href="https://www.linkedin.com/in/daniele-schiavoni-871b84181/" target="_blank">Daniele Schiavoni</a> - <a href="https://www.linkedin.com/in/mauro-gariazzo-976a241b8/" target="_blank">Mauro Gariazzo</a> - <a href="https://www.linkedin.com/in/tidiane-ba-9829a124b/" target="_blank">Amadou</a>
+            </div> 
+        </div>
+    </footer>
 </body>
 </html>
 

@@ -10,8 +10,16 @@ a {
     text-decoration: none;
 }
 
+h1 {
+    text-align: center;
+}
+
+h4 {
+    margin:5%;
+}
+
 body {
-    background-color: #159197;
+    background-color: #30d5cf;
 }
 
 .background-image {
@@ -37,7 +45,7 @@ body {
 .bottom-footer {
     grid-area: footer;
     padding: 5vh;
-    background-color: rgba(0,122,57,1);
+    background-color:#00B4DB;
     width: 100%;
     display: flex;
     flex-flow:column;
@@ -48,19 +56,19 @@ body {
 }
 
 .sidenav {
-    grid-area: sidebar;
-    position: fixed;
+     position: fixed;
     top: 0;
-    height: 10vh;
+    left: 0;
     width: 100%;
+    height: 10vh;
     background: linear-gradient(to bottom, #0083B0, #00B4DB);
-    transition: width 0.5s, height 0.5s opacity 0.2s;
-    z-index: 1;
     display: flex;
-    align-content: center;
     justify-content: center;
     align-items: center;
-    gap: 2vh;
+    z-index: 1;
+    transition: width 0.5s, height 0.5s, opacity 0.2s;
+    gap: 1vh;
+    padding-left: 22px;
 }
 
     .sidenav a {
@@ -103,6 +111,7 @@ body {
         background-image: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%), radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
         background-size: 150%;
         animation: MoveBackgroundPosition 2s ease-in-out infinite;
+        margin-right: 5%;
     }
     .sidenav .goldNavButton:focus {
         box-shadow: rgba(45, 35, 66, .3) 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(45, 35, 66, .3) 0 -3px 0 inset;
