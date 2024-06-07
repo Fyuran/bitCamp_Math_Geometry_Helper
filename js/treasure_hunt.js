@@ -87,7 +87,7 @@ function guess() {//cuore del gioco
                     
                 }
             }
-            //document.getElementById("tries_left").innerHTML = tries_left;
+            document.getElementById("tries_left").innerHTML = tries_left;
         }
     }
     else {
@@ -113,6 +113,7 @@ function skip() {//Se il giocatore non sa rispondere a una domanda, potrà salta
         question.setAttribute("hidden", "");//Il gioco si comporta come si comporta quando si indovina la risposta
         level_index++;
         skips--;
+document.getElementById("skip_left)=skips;
         if (level_index < questions.length) {
             map.src = maps[level_index];
             question = document.getElementById(questions[level_index]);
