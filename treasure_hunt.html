@@ -31,6 +31,7 @@
         .card {
             margin: 3rem 1rem 3rem 0;
             border: solid 3px rgb(104,59,38);
+            min-height:550px;
         }
 
         .row {
@@ -101,7 +102,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="showScreen()"></button>
                         </div>
                         <div class="modal-body">
-                            Congratulazioni, potente stregone! Hai superato tutti gli ostacoli e risolto i complessi quesiti matematici e logici dei troll. Con il tuo ingegno e la tua magia, hai trovato il portale nascosto e sei riuscito a liberarti dal castello. La tua leggenda continuerà a essere raccontata per generazioni. Bravo!"
+                            Congratulazioni, potente stregone! Hai superato tutti gli ostacoli e risolto i complessi quesiti matematici e logici dei troll. Con il tuo ingegno e la tua magia, hai trovato il portale nascosto e sei riuscito a liberarti dal castello. La tua leggenda continuerà a essere raccontata per generazioni. Bravo!
                         </div>
                     </div>
                 </div>
@@ -141,7 +142,7 @@
 
                         <div class="col-md-6 col-12">
                             <div id="questions" class="d-flex align-items-stretch">
-                                <div id="quest1" class="card mx-auto" hidden style="width: 18rem;">
+                                <div id="quest1" class="card mx-auto w-100" hidden>
                                     <div class="card-body">
                                         <div class="card-header">
                                             <h5 class="card-title">1.</h5>
@@ -167,26 +168,26 @@
                                             </li>
                                         </ul>
                                         <hr />
-                                        <button class="btn" type="button" onclick="giveHint()">
-                                            Indizio
-                                        </button>
-                                        <button class="btn" type="button" onclick="skip()">Passa</button>
                                     </div>
                                     <div class="card-footer text-muted">
-                                        <button type="button" class="btn" onclick="guess()">Prosegui!</button>
-                                        <!--Qui ci devo inserire il punteggio-->
+                                        <button type="button" class="btn btn-primary" onclick="guess()">Prosegui!</button>
+                                        <button class="btn btn-primary" type="button" onclick="giveHint()">
+                                            Indizio
+                                        </button>
+                                        <button class="btn btn-primary" type="button" onclick="skip()">Passa</button>
+                                        
                                     </div>
                                 </div>
 
 
                                 <!--Seconda domanda-->
-                                <div id="quest2" class="card mx-auto" hidden style="width: 18rem;">
+                                <div id="quest2" class="card mx-auto w-100" hidden>
                                     <div class="card-body">
                                         <div class="card-header">
                                             <h5 class="card-title">2.</h5>
                                             <h6 class="card-subtitle mb-2 text-muted">La ninfea</h6>
                                         </div>
-                                        <p class="card-text">In uno stagno c'è una foglia di ninfea. Ogni giorno il numero delle foglie si raddoppia: due foglie il secondo giorno, quattro il terzo, otto il quarto e così via. “Se lo stagno si ricopre interamente di foglie il trentesimo giorno, quand'è che sarà coperto per metà?</p>
+                                        <p class="card-text">In uno stagno c'è una foglia di ninfea. Ogni giorno il numero delle foglie si raddoppia: due foglie il secondo giorno, quattro il terzo, otto il quarto e così via. Se lo stagno si ricopre interamente di foglie il trentesimo giorno, quand'è che sarà coperto per metà?</p>
                                         <ul class="list-group answers list-group-flush">
                                             <li class="list-group-item">
                                                 <input name="quest2" id="fifteen" type="radio" value="false" />
@@ -206,18 +207,20 @@
                                             </li>
                                         </ul>
                                         <hr />
-                                        <button class="btn" type="button" onclick="giveHint()">Indizio</button>
-                                        <button class="btn" type="button" onclick="skip()">Passa</button>
                                     </div>
                                     <div class="card-footer text-muted">
-                                        <button type="button" class="btn" onclick="guess()">Prosegui!</button>
-                                        <!--Qui ci devo inserire il punteggio-->
+                                        <button type="button" class="btn btn-primary" onclick="guess()">Prosegui!</button>
+                                        <button class="btn btn-primary" type="button" onclick="giveHint()">
+                                            Indizio
+                                        </button>
+                                        <button class="btn btn-primary" type="button" onclick="skip()">Passa</button>
+
                                     </div>
                                 </div>
 
 
                                 <!--Terza domanda-->
-                                <div id="quest3" class="card mx-auto" hidden style="width: 18rem;">
+                                <div id="quest3" class="card mx-auto w-100" hidden>
                                     <div class="card-body">
                                         <div class="card-header">
                                             <h5 class="card-title">3.</h5>
@@ -244,18 +247,20 @@
                                             </li>
                                         </ul>
                                         <hr />
-                                        <button class="btn" type="button" onclick="giveHint()">Indizio</button>
-                                        <button class="btn" type="button" onclick="skip()">Passa</button>
                                     </div>
                                     <div class="card-footer text-muted">
-                                        <button type="button" class="btn" onclick="guess()">Prosegui!</button>
-                                        <!--Qui ci devo inserire il punteggio-->
+                                        <button type="button" class="btn btn-primary" onclick="guess()">Prosegui!</button>
+                                        <button class="btn btn-primary" type="button" onclick="giveHint()">
+                                            Indizio
+                                        </button>
+                                        <button class="btn btn-primary" type="button" onclick="skip()">Passa</button>
+
                                     </div>
                                 </div>
 
 
                                 <!--Quarta domanda-->
-                                <div id="quest4" class="card mx-auto" hidden style="width: 18rem;">
+                                <div id="quest4" class="card mx-auto w-100" hidden>
                                     <div class="card-body">
                                         <div class="card-header">
                                             <h5 class="card-title">4.</h5>
@@ -281,17 +286,18 @@
                                             </li>
                                         </ul>
                                         <hr />
-                                        <button class="btn" type="button" onclick="giveHint()">Indizio</button>
-                                        <button class="btn" type="button" onclick="skip()">Passa</button>
                                     </div>
                                     <div class="card-footer text-muted">
-                                        <button type="button" class="btn" onclick="guess()">Prosegui!</button>
-                                        <!--Qui ci devo inserire il punteggio-->
+                                        <button type="button" class="btn btn-primary" onclick="guess()">Prosegui!</button>
+                                        <button class="btn btn-primary" type="button" onclick="giveHint()">
+                                            Indizio
+                                        </button>
+                                        <button class="btn btn-primary" type="button" onclick="skip()">Passa</button>
                                     </div>
                                 </div>
 
                                 <!--Quinta domanda-->
-                                <div id="quest5" class="card mx-auto" hidden style="width: 18rem;">
+                                <div id="quest5" class="card mx-auto w-100" hidden>
                                     <div class="card-body">
                                         <div class="card-header">
                                             <h5 class="card-title">5.</h5>
@@ -317,18 +323,19 @@
                                             </li>
                                         </ul>
                                         <hr />
-                                        <button class="btn" type="button" onclick="giveHint()">Indizio</button>
-                                        <button class="btn" type="button" onclick="skip()">Passa</button>
                                     </div>
                                     <div class="card-footer text-muted">
-                                        <button type="button" class="btn" onclick="guess()">Prosegui!</button>
-                                        <!--Qui ci devo inserire il punteggio-->
+                                        <button type="button" class="btn btn-primary" onclick="guess()">Prosegui!</button>
+                                        <button class="btn btn-primary" type="button" onclick="giveHint()">
+                                            Indizio
+                                        </button>
+                                        <button class="btn btn-primary" type="button" onclick="skip()">Passa</button>
                                     </div>
                                 </div>
 
 
                                 <!--Sesta domanda-->
-                                <div id="quest6" class="card mx-auto" hidden style="width: 18rem;">
+                                <div id="quest6" class="card mx-auto w-100" hidden>
                                     <div class="card-body">
                                         <div class="card-header">
                                             <h5 class="card-title">6.</h5>
@@ -355,18 +362,19 @@
                                             </li>
                                         </ul>
                                         <hr />
-                                        <button class="btn" type="button" onclick="giveHint()">Indizio</button>
-                                        <button class="btn" type="button" onclick="skip()">Passa</button>
                                     </div>
                                     <div class="card-footer text-muted">
-                                        <button type="button" class="btn" onclick="guess()">Prosegui!</button>
-                                        <!--Qui ci devo inserire il punteggio-->
+                                        <button type="button" class="btn btn-primary" onclick="guess()">Prosegui!</button>
+                                        <button class="btn btn-primary" type="button" onclick="giveHint()">
+                                            Indizio
+                                        </button>
+                                        <button class="btn btn-primary" type="button" onclick="skip()">Passa</button>
                                     </div>
                                 </div>
 
 
                                 <!--Settima domanda-->
-                                <div id="quest7" class="card mx-auto" hidden style="width: 18rem;">
+                                <div id="quest7" class="card mx-auto w-100" hidden>
                                     <div class="card-body">
                                         <div class="card-header">
                                             <h5 class="card-title">7.</h5>
@@ -392,19 +400,20 @@
                                             </li>
                                         </ul>
                                         <hr />
-                                        <button class="btn" type="button" onclick="giveHint()">Indizio</button>
-                                        <button class="btn" type="button" onclick="skip()">Passa</button>
                                     </div>
                                     <div class="card-footer text-muted">
-                                        <button type="button" class="btn" onclick="guess()">Prosegui!</button>
-                                        <!--Qui ci devo inserire il punteggio-->
+                                        <button type="button" class="btn btn-primary" onclick="guess()">Prosegui!</button>
+                                        <button class="btn btn-primary" type="button" onclick="giveHint()">
+                                            Indizio
+                                        </button>
+                                        <button class="btn btn-primary" type="button" onclick="skip()">Passa</button>
                                     </div>
                                 </div>
 
 
 
                                 <!--Ottava domanda-->
-                                <div id="quest8" class="card mx-auto" hidden style="width: 18rem;">
+                                <div id="quest8" class="card mx-auto w-100" hidden>
                                     <div class="card-body">
                                         <div class="card-header">
                                             <h5 class="card-title">8.</h5>
@@ -430,12 +439,13 @@
                                             </li>
                                         </ul>
                                         <hr />
-                                        <button class="btn" type="button" onclick="giveHint()">Indizio</button>
-                                        <button class="btn" type="button" onclick="skip()">Passa</button>
                                     </div>
                                     <div class="card-footer text-muted">
-                                        <button type="button" class="btn" onclick="guess()">Prosegui!</button>
-                                        <!--Qui ci devo inserire il punteggio-->
+                                        <button type="button" class="btn btn-primary" onclick="guess()">Prosegui!</button>
+                                        <button class="btn btn-primary" type="button" onclick="giveHint()">
+                                            Indizio
+                                        </button>
+                                        <button class="btn btn-primary" type="button" onclick="skip()">Passa</button>
                                     </div>
                                 </div>
                             </div>
