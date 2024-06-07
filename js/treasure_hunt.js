@@ -84,10 +84,11 @@ function guess() {//cuore del gioco
                     alert("Risposta errata! Riprova!");
                     tries_left--;
                     answer[i].checked = false;
+document.getElementById("tries_left").innerHTML = tries_left;
                     
                 }
             }
-            document.getElementById("tries_left").innerHTML = tries_left;
+            
         }
     }
     else {
