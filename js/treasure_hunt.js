@@ -59,7 +59,7 @@ function start() {//Reset di tutti i valori: mappa, punti, hints e skips
 function guess() {//cuore del gioco
 
     
-    if (tries_left > 1) {//Se ci sono ancora tentativi il gioco parte
+    if (tries_left > 0) {//Se ci sono ancora tentativi il gioco parte
         for (i = 0; i <= maps.length; i++) {//ciclo for che trova quale risposta è checked
             if (answer[i].checked) {
                 if (answer[i].value == "true") {//Se la risposta è giusta, vengono aggiornati i seguenti valori:
@@ -84,7 +84,10 @@ function guess() {//cuore del gioco
                     alert("Risposta errata! Riprova!");
                     tries_left--;
                     answer[i].checked = false;
-document.getElementById("tries_left").innerHTML = tries_left;
+                    document.getElementById("tries_left").innerHTML = tries_left;
+                    if (tries_left == 0) {
+                        var lose_modal = new bootstrap.Modal(document.getElementById("lose_modal"));
+                        lose_modal.show(); }
                     
                 }
             }
@@ -92,8 +95,7 @@ document.getElementById("tries_left").innerHTML = tries_left;
         }
     }
     else {
-        var lose_modal = new bootstrap.Modal(document.getElementById("lose_modal"));
-        lose_modal.show();
+        alert("Tentativi esauriti!")
     }
     
 }
